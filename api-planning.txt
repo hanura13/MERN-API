@@ -1,0 +1,54 @@
+Standar API
+
+{root.api}/{version}{grouping}/{endpoint}
+
+Sample:
+http://mern-api.sundev.com/v1/auth/login
+
+Standar Status Response:
+
+200 - OK                    --> Call API Success
+201 - CREATED               --> Post Success
+400 - BAD REQUEST           --> Error on Client Side(Bisa input yang salah dll)
+401 - UNAUTHORIZED          --> user not authorized to the request.
+403 - FORBIDDEN             --> user not allowed to access.
+404 - NOT FOUND             --> Request EndPoint Not Found.
+500 - INTERNAL SERVER ERROR --> error on server Side
+502 - BAD GATEWAY           --> Invalid Response From Another Request.
+
+Group: Authentication
+
+1. Register
+{root.api}/{version}/auth/register
+
+req:
+{
+    "name": "HAnura",
+    "email"; "hanura.@gmail.com",
+    "password": "1234567"
+}
+
+res:
+{
+    "message": "Register Sukses",
+    "data": {
+        "id" : 1,
+        "name": "HAnura",
+        "email"; "hanura.@gmail.com",
+        "password": "1234567"
+    }
+}
+
+err-response
+
+2. Login
+{root.api}/{version}/auth/login
+
+
+
+GROUP: BLOG
+
+1. Create Blog POst
+2. get Blog POst
+3. Update Blog POst
+4. delete Blog Post
