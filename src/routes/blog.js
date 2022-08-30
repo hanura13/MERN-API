@@ -6,7 +6,20 @@ const router = express.Router();
 const blogController = require('../controllers/blog');
 //POST 
 router.post('/post', 
-            [body('title').isLength({min: 5}).withMessage('Title tidak sesuai'),
-            body('body').isLength({min: 5}).withMessage('Body tidak sesuai')],
+            [body('title').isLength({min: 5})
+            .withMessage('Title tidak sesuai'),
+            body('body').isLength({min: 5})
+            .withMessage('Body tidak sesuai')],
             blogController.createBlogPost);
+
+
+router.get('/posts', blogController.getAllBlogPost);
+router.get('/post/:postId', blogController.getBlogPostById);
+router.put('/post/:postId', 
+            [body('title').isLength({min: 5})
+            .withMessage('Title tidak sesuai'),
+            body('body').isLength({min: 5})
+            .withMessage('Body tidak sesuai')],
+            blogController.updateBlogPost);
+
 module.exports = router;
